@@ -39,13 +39,13 @@ include_once 'pdo.php';
 $db = new db("localhost","test_db","root",""); // define in your header you can access it anywhere thoughout the page
 
 ```
-##select example
+## select example
 
 `$allData = $db->query("SELECT * FROM users");`
 
-##prepared query
+## prepared query
 `$preparedData = $db->query("SELECT * FROM users WHERE age > ?",[18]);`
-##multiple prepared
+## multiple prepared
 ```
 //prepare SELECT, multiple conditions
 
@@ -54,7 +54,7 @@ $active = 1;
 $preparedData = $db->query("SELECT * FROM users WHERE age > ? AND is_active = ?",[18,$active]);
 ```
 
-##Others
+## Others
 ```
 //Update Example
 $db->query("UPDATE users SET age = 18 WHERE age = ?",[17]);
@@ -65,9 +65,9 @@ $db->query("DELETE FROM users WHERE age = 18");
 // Joins
 $db->query("SELECT users.*,address.address LEFT JOIN address ON address.user_id = users.id WHERE users.id = ?",[1]);
 ```
-##Change Fetch mode without having prepared data
+## Change Fetch mode without having prepared data
 ```
 $db->query('SELECT * FROM users',[],PDO::FETCH_COLUMN); // notice empty array as second arg.
 ```
-#GET Last Inserted Id
+# GET Last Inserted Id
 `$db->lastId()`
