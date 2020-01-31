@@ -19,4 +19,7 @@ class db
     public function lastId(){
         return $this->database->lastInsertId(); // just a note https://www.php.net/manual/en/pdo.lastinsertid.php
     }
+    public function __destruct(){
+        $this->database = null;
+    }
 }
